@@ -5,11 +5,11 @@ int frontt = -1, rear = -1;
 int queuee[5]; //max size is taken as 5 for ease of testing
 
 bool isempty(){
-    return (frontt == -1 && rear == -1);
+    return ((frontt == -1 && rear == -1) || frontt > rear);
 }
 
 bool isfull(){
-    return (rear == 4);
+    return (rear == 5-1);
 }
 
 int size(){
@@ -36,8 +36,7 @@ int dequeue(){
         return -1;
     }
     else if(frontt == rear){
-        int x = queuee[frontt];
-        frontt = rear = -1;
+        int x = queuee[frontt++];
         return x;
     }
     else{
